@@ -1,0 +1,25 @@
+<title>To-Do-List</title>
+
+{% block content %}
+<form action="/forms1/" method="POST">
+    {% csrf_token %}
+    
+    {{form }}
+    <input type="submit">
+</form>
+
+<ul>
+    {% for i in lists %}
+    <li>
+        {{i.task}}
+        {{i.desc}}
+        <a href="/updatetask/{{i.id}}"><button type="button" onclick="alert('Do you want to update!')">Update!</button></a>
+        <a href="/{{i.id}}"><button type="button" onclick="alert('Do you want to delete!')">Delete!</button></a>
+        <br><br>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+
+

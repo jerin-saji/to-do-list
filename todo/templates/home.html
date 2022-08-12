@@ -1,0 +1,32 @@
+<form action="/createtask/" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="tasks" name="tasks">
+    <input type="text" placeholder="description" name="description">
+    <input type="submit">
+</form>
+
+
+{% block content %}
+
+<!-- <form action="/createtask/" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="tasks" name="tasks">
+    <input type="text" placeholder="description" name="description">
+    <input type="submit">
+</form> -->
+
+<ul>
+    {% for i in list1 %}
+    <li>
+        {{i.task}}
+        {{i.desc}}
+        <a href="/updatetask/{{i.id}}"><button type="button" onclick="alert('Do you want to update!')">Update!</button></a>
+        <a href="/deletetask/{{i.id}}"><button type="button" onclick="alert('Do you want to delete!')">Delete!</button></a>
+        <br><br>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+
+
